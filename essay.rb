@@ -3,9 +3,9 @@
 require 'marky_markov'
 
 DICTIONARY = "dictionary/dictionary.txt"
-WORDS = 15..30
-SENTENCES = 8..15
-PARAGRAPHS = 5
+WORDS = 15..30 # per sentence
+SENTENCES = 8..15 # per paragraph
+PARAGRAPHS = 5..7 # per essay
 
 def sentence_generate(number)
   essay = MarkyMarkov::TemporaryDictionary.new(4)
@@ -27,7 +27,7 @@ end
     
 randnum = rand(10000000..99999999)
 final = File.new("essays/essay-#{randnum}.txt", "w+")
-essay = PARAGRAPHS.times.map { essay_generate + ".\n\n" }
+essay = rand(PARAGRAPHS).times.map { essay_generate + ".\n\n" }
 final.puts essay
 final.close
 puts "Output: Essay-#{randnum}.txt"
