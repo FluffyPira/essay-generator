@@ -36,6 +36,6 @@ end
 randnum  = rand(10000000..99999999)
 filename = "essays/essay-#{randnum}.txt"
 
-File.open(filename, "a+") {|f| f.puts Essay.new.generate}
+File.open(filename, "w+") {|f| f.puts Essay.new.generate}
 
 puts "Output: #{filename}"
