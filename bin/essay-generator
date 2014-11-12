@@ -5,6 +5,6 @@ require File.expand_path('../lib/essay.rb', __dir__)
 randnum  = rand(10000000..99999999)
 filename = "essays/essay-#{randnum}.txt"
 
-File.open(filename, "w+") {|f| f.puts Essay.new.generate}
+File.open(filename, "w+") {|f| f.puts Essay.new(ARGV[0]).generate}
 
 puts "Output: #{filename}"
