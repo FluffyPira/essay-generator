@@ -11,4 +11,7 @@ end
 
 randnum  = rand(1000..9999)
 filename = "dictionary/dictionary-#{randnum}.txt"
+
 File.open(filename, "w+") {|f| f.puts clean_dictionary(ARGV[0])}
+
+puts "Output: #{filename}"
