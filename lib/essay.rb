@@ -2,7 +2,7 @@
 
 require 'marky_markov'
 
-WORDS = 10..25 # per sentence
+WORDS = 5..20 # per sentence
 SENTENCES = 4..10 # per paragraph
 PARAGRAPHS = 2..7 # per essay
 
