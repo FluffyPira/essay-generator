@@ -16,7 +16,8 @@ class Essay
   end
     
   def word_generate(number)
-    @essay.generate_n_words number
+    sentence = @essay.generate_n_words number
+    sentence.gsub(/[^a-z0-9 ]/i, '')
   end
 
   def sentence_generate(sentences=1)
@@ -27,8 +28,8 @@ class Essay
   def paragraph_generate
     sentences = rand(SENTENCES)
     words = sentence_generate(sentences)
-    string = words.join(". ")
-    string.capitalize
+    string = words.map(&:capitalize)
+    string.join('. ')
   end
   
   def generate
