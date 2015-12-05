@@ -3,9 +3,9 @@
 def clean_dictionary(dictionary=nil)
   dictionary ||= "dictionary/dictionary.txt"
   
-  text = File.read(dictionary)
-  text.gsub(/\d+/, "").squeeze(" ").strip
-  cleanup = text.downcase
+  text = File.read(dictionary).split(' ')
+  # text.each { |x| text.gsub(/[[:punct:]]/, '').downcase }
+  cleanup = text.join(" ").gsub(/[[:punct:]]/, '').downcase
 
 end
 

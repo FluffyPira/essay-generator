@@ -2,9 +2,9 @@
 
 require 'marky_markov'
 
-WORDS = 15..30 # per sentence
-SENTENCES = 8..15 # per paragraph
-PARAGRAPHS = 5..7 # per essay
+WORDS = 10..25 # per sentence
+SENTENCES = 4..10 # per paragraph
+PARAGRAPHS = 2..7 # per essay
 
 class Essay
   
@@ -21,7 +21,7 @@ class Essay
 
   def sentence_generate(sentences=1)
     words = rand(WORDS)
-    sentences.times.map { |x| word_generate(words).capitalize }
+    sentences.times.map { |x| word_generate(words) }
   end
 
   def paragraph_generate
