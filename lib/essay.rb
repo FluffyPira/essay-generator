@@ -1,10 +1,26 @@
 #!/usr/bin/env ruby
 
 require 'marky_markov'
+require 'configru'
 
-WORDS = 5..20 # per sentence
-SENTENCES = 4..10 # per paragraph
-PARAGRAPHS = 2..7 # per essay
+config = Configru::Config.new('lib/config.yml') do
+  option_group :words do
+    option_required :high, Fixnum
+    option_required :low, Fixnum
+  end
+  option_group :sentences do
+    option_required :high, Fixnum
+    option_required :low, Fixnum
+  end
+  option_group :paragraphs do
+    option_required :high, Fixnum
+    option_required :low, Fixnum
+  end
+end
+
+WORDS = config.words.low..config.words.high # per sentence
+SENTENCES = config.sentences.low..config.sentences.high
+PARAGRAPHS = config.paragraphs.low..config.paragraphs.high
 
 class Essay
   

@@ -1,0 +1,9 @@
+words:
+    low: 6
+    high: 12
+sentences:
+    low: 3
+    high: 8
+paragraphs:
+    low: 20
+    high: 30
